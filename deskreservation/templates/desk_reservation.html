@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Reservation</title>
+    <h1>Reservation</h1>
+</head>
+<body>
+<form method="post">
+           <p>{{ message }}</p>
+    <label for="comment">Type User ID to make desk reservation:</label>
+    <input type="text" name="comment">
+    <label for="date">Select date to make desk reservation:</label>
+    <input type="date" name="date" value="2020-07-18" min="2020-01-01" max="2030-12-31"><br>
+    <input type="submit" name="submit" value="Reserve">
+    {% csrf_token %}
+
+<a href="/main/">Main page</a>
+</form>
+</body>
+</html>

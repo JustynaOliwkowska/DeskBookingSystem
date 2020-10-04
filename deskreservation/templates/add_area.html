@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add new area</title>
+
+</head>
+<body>
+<form class="pure-form" method="POST">
+    <fieldset>
+        <legend>Add new area</legend>
+         <p>{{ message }}</p>
+         <label>
+        office area name: <input type="text" name="name">
+        </label>
+        <label>
+        office area capacity: <input type="text" name="capacity">
+         </label>
+
+        </select>
+        <button type="submit" class="pure-button pure-button-primary">Send</button>
+    </fieldset>
+    {% csrf_token %}
+<a href="/main/">Main page</a>
+</form></body>
+</html>

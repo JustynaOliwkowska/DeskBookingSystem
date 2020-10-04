@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Show reservation details</title>
+</head>
+    <body>
+        <h1>Office Area details</h1>
+        <h2> Area name: {{ area.name }}</h2>
+
+        <ol>
+        {% for reservation in reservations %}
+       <li>{{ reservation.date }} -- {{ reservation.employee_id }}  </li><br>
+        {% endfor %}
+<a href="/main/">Main page</a>
+    </body>
+</html>

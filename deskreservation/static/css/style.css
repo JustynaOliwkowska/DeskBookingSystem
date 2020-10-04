@@ -1,0 +1,10 @@
+html{
+
+}
+.jj {
+    width: 600px;
+    height: 400px;
+    background-image: url(../images/logo4.png);
+    background-size: cover;
+    background-position: center;
+}

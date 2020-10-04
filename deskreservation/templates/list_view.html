@@ -1,0 +1,14 @@
+{% load static %}
+{% block content %}
+    <fieldset>
+    <h1>Registered Users </h1>
+        <img src="{% static 'logo5.png' %}"><br />
+    <ul>
+    {% for user in object_list %}
+        <li>{{ user.username }} </li>
+    {% endfor %}
+    </ul>
+{% endblock %}
+    </fieldset>
+
+<a href="/main/">Main page</a>
