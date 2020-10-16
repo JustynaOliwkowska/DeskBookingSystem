@@ -1,0 +1,20 @@
+{% extends 'user_search.html' %}
+{#{% block content %}#}
+{#    Notes<br>#}
+{#    Ofiice: {{to_area.name }}#}
+{#        {% for notice in officearea_notices %}#}
+{#        <li>{{ notice.content }} </li>#}
+{#        <a href="/delete_notice/{{ notice.id }}/">Delete</a>#}
+{#        {% endfor %}#}
+{#{% endblock %}#}
+
+{% block content %}
+    Notatki<br>
+    Uczeń: {{ to_area.name }}
+    <p><a href="/add_notice/">Dodaj notatkę</a></p>
+    <ul>
+    {% for notice in student_notices %}
+{#    <li>{{ notice.content }} <a href="/delete_notice/{{ notice.id }}/">Usuń</a></li>#}
+    {% endfor %}
+    </ul>
+{% endblock %}

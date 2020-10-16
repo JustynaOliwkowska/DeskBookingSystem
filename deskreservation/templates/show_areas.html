@@ -1,10 +1,19 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Office areas that you can select</title>
+    <link href="https://fonts.googleapis.com/css?family=Arvo:400,700|Playfair+Display:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
 </head>
+
 <body>
+<div class="container">
     <ol>
         <fieldset>
      <h1>Details</h1>
@@ -13,6 +22,9 @@
     <p>Office area capacity: {{ area.capacity }}</p>
     {% endfor %}
        </fieldset>
-<a href="/main/">Main page</a>
+    <a href="/main/">Main page</a>
+    <a href="/office/">Office plan</a><br>
+    </ol>
+</div>
 </body>
 </html>

@@ -1,17 +1,30 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Show reservation details</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Office areas that you can select</title>
+    <link href="https://fonts.googleapis.com/css?family=Arvo:400,700|Playfair+Display:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/style1.css' %}">
 </head>
-    <body>
-        <h1>Office Area details</h1>
-        <h2> Area name: {{ area.name }}</h2>
 
-        <ol>
-        {% for reservation in reservations %}
-       <li>{{ reservation.date }} -- {{ reservation.employee_id }}  </li><br>
-        {% endfor %}
-<a href="/main/">Main page</a>
-    </body>
-</html>
+<body>
+<div class="container">
+        <fieldset>
+     <h1>Office areas that you can select</h1>
+        {% for area in areas %}
+        <h2>Name: {{ area.name }}</h2>
+        <p>Office area capacity: {{ area.capacity }}</p>
+         <a href="/desk/reservation/{{area.id}}">RESERVE</a>
+         <a href="/reservation/details/{{area.id}}">DETAILS</a>
+         <a href="/remove/area/{{area.id}}">REMOVE AREA</a>
+         {% endfor %}
+       </fieldset>
+        <a href="/main/">Main page</a>
+
+</div>
+</body>
+</head>

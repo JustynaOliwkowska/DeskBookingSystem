@@ -1,0 +1,17 @@
+{% extends 'user_search.html' %}
+{% block content %}
+    <h1>Type date it must be in YYYY-MM-DD format </h1><br>
+    <form method="post">
+    {% csrf_token %}
+    {{ form.as_ul }}
+    <input type="submit" value="Search!">
+    </form>
+    <ul>
+    {% for id in ids %}
+    <li>Employee: {{ id.employee_id }} -- Office Area: {{id.area_id.name}} </li>
+    {% empty %}
+    {% endfor %}
+    </ul>
+{% endblock %}
+
+<a href="/main/">Main page</a>

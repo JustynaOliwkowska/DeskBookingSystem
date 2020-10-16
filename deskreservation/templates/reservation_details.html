@@ -1,38 +1,14 @@
-<!--<!DOCTYPE html>-->
-<!--<html lang="en">-->
-<!--<head>-->
-<!--    <meta charset="UTF-8">-->
-<!--    <title>Reservation details</title>-->
-<!--</head>-->
-<!--<body>-->
-<!--    <h1>Reservations: </h1>-->
-<!--    <h2>Office area name: {{ area.name }}</h2>-->
-<!--    <p>Office area capacity: {{ area.capacity }}</p>-->
-<!--    <ol>-->
-<!--    {% for reservation in reservations %}-->
-<!--   <li>{{ reservation.date }} &#45;&#45; {{ reservation.employee_id }}  </li><br>-->
-<!--    {% endfor %}-->
+{% extends 'user_search.html' %}
+{% block content %}
 
-<!--    </body>-->
-<!--</html>-->
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Office areas that you can select</title>
-</head>
-<body>
-    <ol>
+{#<div class="container">#}
         <fieldset>
-     <h1>text</h1>
-    {% for area in areas %}
-    <h2>Name: {{ area.name }}</h2>
-    <p>Office area capacity: {{ area.capacity }}</p>
-     <a href="/desk/reservation/{{area.id}}">RESERVE</a>
-     <a href="/reservation/details/{{area.id}}">DETAILS</a>
-    {% endfor %}
-       </fieldset>
-<a href="/main/">Main page</a>
-</body>
-</html>
+    <h1> Area name: {{ area.name }}</h1>
+        <ul>
+        {% for reservation in reservations %}
+            <li>{{ reservation.date }} -- {{ reservation.employee_id }} -- <a href="/remove/desk/{{reservation.id}}">REMOVE USER</a>  </li><br>
+        {% endfor %}
+        </ul>
+        </fieldset>
+{#        <a href="/main/">Main page</a>#}
+{% endblock %}

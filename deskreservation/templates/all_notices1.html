@@ -1,0 +1,12 @@
+{% extends 'user_search.html' %}
+{% block content %}
+    Reservations Notes:<br>
+
+        {% for aa in to_reservation %}
+            {% for notice in aa.reservationnotice_set.all %}
+                <li>{{ aa.employee_id }}--{{ aa.date }}--{{ notice.content }}</li>
+            {% endfor %}
+    {%  endfor %}
+
+<p><a href="/reservation_notice/">Add note</a></p>
+{% endblock %}

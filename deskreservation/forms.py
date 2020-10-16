@@ -1,6 +1,6 @@
 from django import forms
 from django.contrib.auth.models import User
-
+from .models import *
 
 class LoginUserForm(forms.Form):
     username = forms.CharField(label='Login', max_length=100)
@@ -30,3 +30,19 @@ class AddUserForm(forms.Form):
             if user:
                 raise forms.ValidationError('Login already taken')
         return username
+
+class UserSearchForm(forms.Form):
+    employee_id = forms.CharField(label='User', max_length=100)
+
+class DateAreaSearchForm(forms.Form):
+    date = forms.CharField(label='Date')
+
+class OfficeAreaNoticeForm(forms.ModelForm):
+    class Meta:
+        model = OfficeAreaNotice
+        fields = ['to_area', 'content']
+
+class ReservationNoticeForm(forms.ModelForm):
+    class Meta:
+        model = ReservationNotice
+        fields = ['to_reservation', 'content']
