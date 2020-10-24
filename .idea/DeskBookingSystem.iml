@@ -14,7 +14,6 @@
   </component>
   <component name="NewModuleRootManager">
     <content url="file://$MODULE_DIR$">
-      <sourceFolder url="file://$MODULE_DIR$/desk" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/deskreservation" isTestSource="false" />
       <excludeFolder url="file://$MODULE_DIR$/venv" />
     </content>

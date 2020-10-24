@@ -14,9 +14,10 @@ class Reservation(models.Model):
 
     class Meta:
         unique_together = ('date', 'employee_id')
+        ordering = ['date']
 
     def __str__(self):
-        return self.employee_id
+        return f"{self.date} - {self.employee_id}"
 
 class OfficeAreaNotice(models.Model):
     to_area = models.ForeignKey(OfficeArea, on_delete=models.CASCADE)
@@ -25,3 +26,4 @@ class OfficeAreaNotice(models.Model):
 class ReservationNotice(models.Model):
     to_reservation = models.ForeignKey(Reservation, on_delete=models.CASCADE)
     content = models.TextField()
+

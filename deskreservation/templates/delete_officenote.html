@@ -2,7 +2,7 @@
 {% block content %}
     <form method="post">
     {% csrf_token %}
-        <p>Wanna remove this note: {{ notice.content}} ?</p>
+        <li>Wanna remove this note: {{ object.content}} ?</li>
     <input type="submit" value="Delete">
     </form>
 {% endblock %}

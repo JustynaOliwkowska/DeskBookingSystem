@@ -116,13 +116,13 @@
                                      <a href="/reservation/details2/">Make reservation</a>
                                      <a href="/user_search/">Search Employee by ID</a>
                                      <a href="/date_search/">Search by Date</a><br>
-<!--                                    <p class="tm-text-yellow float-right mb-0">Latest News . 30 June 2018</p>-->
+                                    <!--                                    <p class="tm-text-yellow float-right mb-0">Latest News . 30 June 2018</p>-->
                                 </div>
                             </div>
                         </div>
                         <div class="tm-timeline-connector-vertical"></div>
                     </div>
-
+                    {%  if user.is_superuser %}
                     <div class="tm-timeline-item">
                         <div class="tm-timeline-item-inner">
                             <img src="../static/img/logo8.png" alt="Image" class="rounded-circle tm-img-timeline">
@@ -131,20 +131,19 @@
                             </div>
                             <div class="tm-timeline-description-wrap">
                                 <div class="tm-bg-dark-light tm-timeline-description">
-                                    <h3 class="tm-text-orange tm-font-400"> In progress</h3>
+                                    <h3 class="tm-text-orange tm-font-400"> Office information system</h3>
                                     <p>In progress.</p>
                                      <a href="/area_view/">Add area note</a>
                                      <a href="/reservation_view/">Add reservation note</a>
-<!--                                    <p class="tm-text-orange float-right mb-0">New Project . 22 June 2018</p>-->
                                 </div>
                             </div>
                         </div>
-
+                        {%  endif %}
                     </div>
 
                 </div>
             </div>
-            <!--  row -->
+
             <hr>
             <div class="row tm-section-mb tm-section-mt">
                 <div class="col-lg-4 col-md-4 col-sm-12 pr-lg-5 mb-md-0 mb-4">

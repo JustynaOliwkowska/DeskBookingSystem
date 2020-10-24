@@ -10,7 +10,6 @@
     <link href="https://fonts.googleapis.com/css?family=Arvo:400,700|Playfair+Display:400,700" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'css/style1.css' %}">
 </head>
-
 <body>
 <div class="container">
         <fieldset>
@@ -20,11 +19,12 @@
         <p>Office area capacity: {{ area.capacity }}</p>
          <a href="/desk/reservation/{{area.id}}">RESERVE</a>
          <a href="/reservation/details/{{area.id}}">DETAILS</a>
-         <a href="/remove/area/{{area.id}}">REMOVE AREA</a>
+            {%  if user.is_superuser %}
+                 <a href="/remove/area/{{area.id}}">REMOVE AREA</a>
+            {%  endif %}
          {% endfor %}
        </fieldset>
         <a href="/main/">Main page</a>
-
 </div>
 </body>
 </head>

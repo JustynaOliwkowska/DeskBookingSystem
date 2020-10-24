@@ -1,14 +1,14 @@
 {% extends 'user_search.html' %}
 {% block content %}
-
-{#<div class="container">#}
         <fieldset>
     <h1> Area name: {{ area.name }}</h1>
         <ul>
         {% for reservation in reservations %}
-            <li>{{ reservation.date }} -- {{ reservation.employee_id }} -- <a href="/remove/desk/{{reservation.id}}">REMOVE USER</a>  </li><br>
+            <li>{{ reservation.date }} -- {{ reservation.employee_id }}
+                {%  if user.is_superuser %}
+                <a href="/remove/desk/{{reservation.id}}">REMOVE USER</a>  </li><br>
+                {%  endif %}
         {% endfor %}
         </ul>
         </fieldset>
-{#        <a href="/main/">Main page</a>#}
 {% endblock %}

@@ -1,34 +1,14 @@
-{% load static %}
+{% extends 'user_search.html' %}
+{% block content %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>DBS</title>
-    <link rel="stylesheet" href="../static/css/style.css">
-
-
+    <title>Remove desk</title>
 </head>
 <body>
-<div class="container">
-    <fieldset>
-        <h1>Add new area</h1>
+         <p>{{ message }}</p><br>
 
-        {% block content %}
-         <form method="post">
-        {% csrf_token %}
-         <p>{{ message }}</p>
-         <label>
-        Classroom name: <input type="text" name="name">
-        </label>
-        <label>
-        Classroom capacity: <input type="text" name="capacity">
-         </label>
-
-        <button type="submit" class="pure-button pure-button-primary">Send</button>
-         </form>
-         {% endblock %}
-    </fieldset>
-    <a href="/main/">Main page</a>
-</div>
 </body>
 </html>
+{% endblock %}
