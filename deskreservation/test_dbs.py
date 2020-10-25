@@ -1,7 +1,21 @@
 import pytest
 from django.contrib.auth.models import User
 from django.test import Client
-from deskreservation.models import OfficeArea, Reservation
+from deskreservation.models import OfficeArea, Reservation, OfficeAreaNotice, ReservationNotice
+
+@pytest.mark.django_db
+def test_login_app(client):
+    client.login(username='justa33', password='1234')
+    response = client.get("/", follow=True)
+    assert response.status_code == 200
+
+
+@pytest.mark.django_db
+def test_logout_app(client):
+    url = '/logout_user/'
+    response = client.get(url)
+    assert response.status_code == 200
+
 
 @pytest.mark.django_db
 def test_main_page(client):
@@ -9,6 +23,18 @@ def test_main_page(client):
     response = client.get(url)
     assert response.status_code == 200
 
+@pytest.mark.django_db
+def test_office_page(client):
+    url = '/office/'
+    response = client.get(url)
+    assert response.status_code == 200
+
+
+@pytest.mark.django_db
+def test_areas_page(client):
+    url = '/show/areas/'
+    response = client.get(url)
+    assert response.status_code == 200
 
 @pytest.mark.django_db
 def test_officearea_in_db(client, officearea):
@@ -111,14 +137,26 @@ def test_delete_desk(client, reservation1):
 
 
 @pytest.mark.django_db
-def test_login_app(client):
-    client.login(username='justa33', password='1234')
-    response = client.get("/", follow=True)
+def test_office_notice(client, officenotice, area):
+    url = f'/area_view/'
+    assert OfficeAreaNotice.objects.count() == 1
+    response = client.get(url, {'to_area': area.id, 'content': 'text123'})
     assert response.status_code == 200
+    assert OfficeAreaNotice.objects.count() == 1
+
 
 @pytest.mark.django_db
-def test_logout_app(client):
-    url = '/logout_user/'
-    response = client.get(url)
-    assert response.status_code == 200
+def test_delete_office_notice(client, officenotice):
+    response = client.delete(f"/delete_notice/{officenotice.id}")
+    assert response.status_code == 301
+    notes_ids = OfficeAreaNotice.objects.all()
+    assert officenotice.id not in notes_ids
 
+
+@pytest.mark.django_db
+def test_reservation_notice(client, reservationnotice, reservation):
+    url = f'/reservation_view/'
+    assert ReservationNotice.objects.count() == 1
+    response = client.get(url, {'to_reservation': reservation.id, 'content': 'text123333'})
+    assert response.status_code == 200
+    assert ReservationNotice.objects.count() == 1

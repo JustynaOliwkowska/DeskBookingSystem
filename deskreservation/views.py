@@ -71,8 +71,6 @@ class ListUsersView(ListView):
 def add_area(request):
     """
     The possibility of adding a new zone in the office
-    :param request: indicate parameters for new area zone
-    :return: new office area zone
     """
     areas = OfficeArea.objects.all()
     if request.method == 'GET':
@@ -115,9 +113,6 @@ def show_areas(request):
 def desk_reservation(request, id):
     """
     Desk reservation in a given zone
-    :param request: GET
-    :param id: area office zone
-    :return: desk reservation
     """
     if request.method == 'GET':
         return render(request, 'desk_reservation.html')
@@ -158,9 +153,6 @@ def reservation_details2(request):
 def delete_area(request, id):
     """
     Office aea delete option
-    :param request: GET
-    :param id: area office zone
-    :return: info message
     """
     if request.method == 'GET':
         del_area = OfficeArea.objects.get(id=id)
@@ -171,9 +163,6 @@ def delete_area(request, id):
 def delete_desk(request, id):
     """
     Reserved desk delete option
-    :param request: GET
-    :param id: desk reservation
-    :return: info message
     """
     if request.method == 'GET':
         del_desk = Reservation.objects.get(id=id)
